@@ -49,6 +49,17 @@ export const createCategory = expressAsyncHandler(
       throw new Error('Unauthorized to perform this action.');
     }
 
+    const categoryExist = await prisma.category.findUnique({
+      where: {
+        name,
+      },
+    });
+
+    if (categoryExist) {
+      res.status(403);
+      throw new Error('Category already exist');
+    }
+
     const newCategory = await prisma.category.create({
       data: {
         name,
@@ -82,6 +93,11 @@ export const updateCategory = expressAsyncHandler(
     if (!category) {
       res.status(404);
       throw new Error('Category not found, try creating it.');
+    }
+
+    if (category.name === name) {
+      res.status(403);
+      throw new Error('Category already exist');
     }
 
     const updatedCategory = await prisma.category.update({

@@ -58,7 +58,7 @@ model CartItem {
   quantity Int    @default(0)
   price    Float
 
-  cart   Cart   @relation(fields: [cartId], references: [id])
+  cart   Cart   @relation(fields: [cartId], references: [id], onDelete: Cascade)
   cartId String
 
   product   Product @relation(fields: [productId], references: [id])
