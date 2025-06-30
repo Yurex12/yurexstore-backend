@@ -7622,10 +7622,10 @@ export namespace Prisma {
 
   export type AddressMinAggregateOutputType = {
     id: string | null
-    fullName: string | null
-    phone: string | null
+    street: string | null
     city: string | null
     state: string | null
+    phone: string | null
     isDefault: boolean | null
     userId: string | null
     createdAt: Date | null
@@ -7634,10 +7634,10 @@ export namespace Prisma {
 
   export type AddressMaxAggregateOutputType = {
     id: string | null
-    fullName: string | null
-    phone: string | null
+    street: string | null
     city: string | null
     state: string | null
+    phone: string | null
     isDefault: boolean | null
     userId: string | null
     createdAt: Date | null
@@ -7646,10 +7646,10 @@ export namespace Prisma {
 
   export type AddressCountAggregateOutputType = {
     id: number
-    fullName: number
-    phone: number
+    street: number
     city: number
     state: number
+    phone: number
     isDefault: number
     userId: number
     createdAt: number
@@ -7660,10 +7660,10 @@ export namespace Prisma {
 
   export type AddressMinAggregateInputType = {
     id?: true
-    fullName?: true
-    phone?: true
+    street?: true
     city?: true
     state?: true
+    phone?: true
     isDefault?: true
     userId?: true
     createdAt?: true
@@ -7672,10 +7672,10 @@ export namespace Prisma {
 
   export type AddressMaxAggregateInputType = {
     id?: true
-    fullName?: true
-    phone?: true
+    street?: true
     city?: true
     state?: true
+    phone?: true
     isDefault?: true
     userId?: true
     createdAt?: true
@@ -7684,10 +7684,10 @@ export namespace Prisma {
 
   export type AddressCountAggregateInputType = {
     id?: true
-    fullName?: true
-    phone?: true
+    street?: true
     city?: true
     state?: true
+    phone?: true
     isDefault?: true
     userId?: true
     createdAt?: true
@@ -7769,10 +7769,10 @@ export namespace Prisma {
 
   export type AddressGroupByOutputType = {
     id: string
-    fullName: string | null
-    phone: string
+    street: string
     city: string
     state: string
+    phone: string
     isDefault: boolean
     userId: string
     createdAt: Date
@@ -7798,10 +7798,10 @@ export namespace Prisma {
 
   export type AddressSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    fullName?: boolean
-    phone?: boolean
+    street?: boolean
     city?: boolean
     state?: boolean
+    phone?: boolean
     isDefault?: boolean
     userId?: boolean
     createdAt?: boolean
@@ -7811,10 +7811,10 @@ export namespace Prisma {
 
   export type AddressSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    fullName?: boolean
-    phone?: boolean
+    street?: boolean
     city?: boolean
     state?: boolean
+    phone?: boolean
     isDefault?: boolean
     userId?: boolean
     createdAt?: boolean
@@ -7824,10 +7824,10 @@ export namespace Prisma {
 
   export type AddressSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    fullName?: boolean
-    phone?: boolean
+    street?: boolean
     city?: boolean
     state?: boolean
+    phone?: boolean
     isDefault?: boolean
     userId?: boolean
     createdAt?: boolean
@@ -7837,17 +7837,17 @@ export namespace Prisma {
 
   export type AddressSelectScalar = {
     id?: boolean
-    fullName?: boolean
-    phone?: boolean
+    street?: boolean
     city?: boolean
     state?: boolean
+    phone?: boolean
     isDefault?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type AddressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fullName" | "phone" | "city" | "state" | "isDefault" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["address"]>
+  export type AddressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "street" | "city" | "state" | "phone" | "isDefault" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["address"]>
   export type AddressInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -7865,10 +7865,10 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      fullName: string | null
-      phone: string
+      street: string
       city: string
       state: string
+      phone: string
       isDefault: boolean
       userId: string
       createdAt: Date
@@ -8298,10 +8298,10 @@ export namespace Prisma {
    */
   interface AddressFieldRefs {
     readonly id: FieldRef<"Address", 'String'>
-    readonly fullName: FieldRef<"Address", 'String'>
-    readonly phone: FieldRef<"Address", 'String'>
+    readonly street: FieldRef<"Address", 'String'>
     readonly city: FieldRef<"Address", 'String'>
     readonly state: FieldRef<"Address", 'String'>
+    readonly phone: FieldRef<"Address", 'String'>
     readonly isDefault: FieldRef<"Address", 'Boolean'>
     readonly userId: FieldRef<"Address", 'String'>
     readonly createdAt: FieldRef<"Address", 'DateTime'>
@@ -14526,10 +14526,10 @@ export namespace Prisma {
 
   export const AddressScalarFieldEnum: {
     id: 'id',
-    fullName: 'fullName',
-    phone: 'phone',
+    street: 'street',
     city: 'city',
     state: 'state',
+    phone: 'phone',
     isDefault: 'isDefault',
     userId: 'userId',
     createdAt: 'createdAt',
@@ -14610,14 +14610,6 @@ export namespace Prisma {
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
-
-
-  export const NullsOrder: {
-    first: 'first',
-    last: 'last'
-  };
-
-  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -14998,10 +14990,10 @@ export namespace Prisma {
     OR?: AddressWhereInput[]
     NOT?: AddressWhereInput | AddressWhereInput[]
     id?: StringFilter<"Address"> | string
-    fullName?: StringNullableFilter<"Address"> | string | null
-    phone?: StringFilter<"Address"> | string
+    street?: StringFilter<"Address"> | string
     city?: StringFilter<"Address"> | string
     state?: StringFilter<"Address"> | string
+    phone?: StringFilter<"Address"> | string
     isDefault?: BoolFilter<"Address"> | boolean
     userId?: StringFilter<"Address"> | string
     createdAt?: DateTimeFilter<"Address"> | Date | string
@@ -15011,10 +15003,10 @@ export namespace Prisma {
 
   export type AddressOrderByWithRelationInput = {
     id?: SortOrder
-    fullName?: SortOrderInput | SortOrder
-    phone?: SortOrder
+    street?: SortOrder
     city?: SortOrder
     state?: SortOrder
+    phone?: SortOrder
     isDefault?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
@@ -15027,10 +15019,10 @@ export namespace Prisma {
     AND?: AddressWhereInput | AddressWhereInput[]
     OR?: AddressWhereInput[]
     NOT?: AddressWhereInput | AddressWhereInput[]
-    fullName?: StringNullableFilter<"Address"> | string | null
-    phone?: StringFilter<"Address"> | string
+    street?: StringFilter<"Address"> | string
     city?: StringFilter<"Address"> | string
     state?: StringFilter<"Address"> | string
+    phone?: StringFilter<"Address"> | string
     isDefault?: BoolFilter<"Address"> | boolean
     userId?: StringFilter<"Address"> | string
     createdAt?: DateTimeFilter<"Address"> | Date | string
@@ -15040,10 +15032,10 @@ export namespace Prisma {
 
   export type AddressOrderByWithAggregationInput = {
     id?: SortOrder
-    fullName?: SortOrderInput | SortOrder
-    phone?: SortOrder
+    street?: SortOrder
     city?: SortOrder
     state?: SortOrder
+    phone?: SortOrder
     isDefault?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
@@ -15058,10 +15050,10 @@ export namespace Prisma {
     OR?: AddressScalarWhereWithAggregatesInput[]
     NOT?: AddressScalarWhereWithAggregatesInput | AddressScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Address"> | string
-    fullName?: StringNullableWithAggregatesFilter<"Address"> | string | null
-    phone?: StringWithAggregatesFilter<"Address"> | string
+    street?: StringWithAggregatesFilter<"Address"> | string
     city?: StringWithAggregatesFilter<"Address"> | string
     state?: StringWithAggregatesFilter<"Address"> | string
+    phone?: StringWithAggregatesFilter<"Address"> | string
     isDefault?: BoolWithAggregatesFilter<"Address"> | boolean
     userId?: StringWithAggregatesFilter<"Address"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Address"> | Date | string
@@ -15748,10 +15740,10 @@ export namespace Prisma {
 
   export type AddressCreateInput = {
     id?: string
-    fullName?: string | null
-    phone: string
+    street: string
     city: string
     state: string
+    phone: string
     isDefault: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -15760,10 +15752,10 @@ export namespace Prisma {
 
   export type AddressUncheckedCreateInput = {
     id?: string
-    fullName?: string | null
-    phone: string
+    street: string
     city: string
     state: string
+    phone: string
     isDefault: boolean
     userId: string
     createdAt?: Date | string
@@ -15772,10 +15764,10 @@ export namespace Prisma {
 
   export type AddressUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    fullName?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     isDefault?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -15784,10 +15776,10 @@ export namespace Prisma {
 
   export type AddressUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    fullName?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     isDefault?: BoolFieldUpdateOperationsInput | boolean
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -15796,10 +15788,10 @@ export namespace Prisma {
 
   export type AddressCreateManyInput = {
     id?: string
-    fullName?: string | null
-    phone: string
+    street: string
     city: string
     state: string
+    phone: string
     isDefault: boolean
     userId: string
     createdAt?: Date | string
@@ -15808,10 +15800,10 @@ export namespace Prisma {
 
   export type AddressUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    fullName?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     isDefault?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -15819,10 +15811,10 @@ export namespace Prisma {
 
   export type AddressUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    fullName?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     isDefault?: BoolFieldUpdateOperationsInput | boolean
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -16559,36 +16551,17 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
   export type BoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
-  }
-
   export type AddressCountOrderByAggregateInput = {
     id?: SortOrder
-    fullName?: SortOrder
-    phone?: SortOrder
+    street?: SortOrder
     city?: SortOrder
     state?: SortOrder
+    phone?: SortOrder
     isDefault?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
@@ -16597,10 +16570,10 @@ export namespace Prisma {
 
   export type AddressMaxOrderByAggregateInput = {
     id?: SortOrder
-    fullName?: SortOrder
-    phone?: SortOrder
+    street?: SortOrder
     city?: SortOrder
     state?: SortOrder
+    phone?: SortOrder
     isDefault?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
@@ -16609,31 +16582,14 @@ export namespace Prisma {
 
   export type AddressMinOrderByAggregateInput = {
     id?: SortOrder
-    fullName?: SortOrder
-    phone?: SortOrder
+    street?: SortOrder
     city?: SortOrder
     state?: SortOrder
+    phone?: SortOrder
     isDefault?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-  }
-
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -17308,10 +17264,6 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
-  }
-
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
   }
@@ -17805,51 +17757,9 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
   export type NestedBoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -17974,10 +17884,10 @@ export namespace Prisma {
 
   export type AddressCreateWithoutUserInput = {
     id?: string
-    fullName?: string | null
-    phone: string
+    street: string
     city: string
     state: string
+    phone: string
     isDefault: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -17985,10 +17895,10 @@ export namespace Prisma {
 
   export type AddressUncheckedCreateWithoutUserInput = {
     id?: string
-    fullName?: string | null
-    phone: string
+    street: string
     city: string
     state: string
+    phone: string
     isDefault: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -18151,10 +18061,10 @@ export namespace Prisma {
     OR?: AddressScalarWhereInput[]
     NOT?: AddressScalarWhereInput | AddressScalarWhereInput[]
     id?: StringFilter<"Address"> | string
-    fullName?: StringNullableFilter<"Address"> | string | null
-    phone?: StringFilter<"Address"> | string
+    street?: StringFilter<"Address"> | string
     city?: StringFilter<"Address"> | string
     state?: StringFilter<"Address"> | string
+    phone?: StringFilter<"Address"> | string
     isDefault?: BoolFilter<"Address"> | boolean
     userId?: StringFilter<"Address"> | string
     createdAt?: DateTimeFilter<"Address"> | Date | string
@@ -19594,10 +19504,10 @@ export namespace Prisma {
 
   export type AddressCreateManyUserInput = {
     id?: string
-    fullName?: string | null
-    phone: string
+    street: string
     city: string
     state: string
+    phone: string
     isDefault: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -19702,10 +19612,10 @@ export namespace Prisma {
 
   export type AddressUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    fullName?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     isDefault?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -19713,10 +19623,10 @@ export namespace Prisma {
 
   export type AddressUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    fullName?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     isDefault?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -19724,10 +19634,10 @@ export namespace Prisma {
 
   export type AddressUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    fullName?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     isDefault?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string

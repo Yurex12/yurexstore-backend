@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 export const cartItemBaseSchema = z.object({
   productId: z.string().min(1, 'ProductId is required'),
+  cartId: z.string().min(1, 'ProductId is required'),
 });
 
 export const cartItemQuantitySchema = z.object({

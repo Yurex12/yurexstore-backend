@@ -98,10 +98,10 @@ model WishListItem {
 
 model Address {
   id        String  @id @default(cuid())
-  fullName  String?
-  phone     String
+  street    String
   city      String
   state     String
+  phone     String
   isDefault Boolean
 
   user   User   @relation(fields: [userId], references: [id])

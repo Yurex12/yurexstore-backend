@@ -161,10 +161,10 @@ exports.Prisma.WishListItemScalarFieldEnum = {
 
 exports.Prisma.AddressScalarFieldEnum = {
   id: 'id',
-  fullName: 'fullName',
-  phone: 'phone',
+  street: 'street',
   city: 'city',
   state: 'state',
+  phone: 'phone',
   isDefault: 'isDefault',
   userId: 'userId',
   createdAt: 'createdAt',
@@ -224,11 +224,6 @@ exports.Prisma.ReviewScalarFieldEnum = {
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
-};
-
-exports.Prisma.NullsOrder = {
-  first: 'first',
-  last: 'last'
 };
 exports.Role = exports.$Enums.Role = {
   USER: 'USER',

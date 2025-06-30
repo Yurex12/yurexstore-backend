@@ -58,7 +58,7 @@ model CartItem {
   quantity Int    @default(0)
   price    Float
 
-  cart   Cart   @relation(fields: [cartId], references: [id])
+  cart   Cart   @relation(fields: [cartId], references: [id], onDelete: Cascade)
   cartId String
 
   product   Product @relation(fields: [productId], references: [id])
@@ -98,10 +98,10 @@ model WishListItem {
 
 model Address {
   id        String  @id @default(cuid())
-  fullName  String?
-  phone     String
+  street    String
   city      String
   state     String
+  phone     String
   isDefault Boolean
 
   user   User   @relation(fields: [userId], references: [id])

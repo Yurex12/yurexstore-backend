@@ -28,7 +28,7 @@ export const getCart = expressAsyncHandler(
       },
     });
 
-    if (!userCart || userCart.cartItems.length === 0) {
+    if (!userCart) {
       res.status(404);
       throw new Error(`There's currently no item in cart.`);
     }
@@ -62,63 +62,42 @@ export const addToCart = expressAsyncHandler(
       throw new Error(`Product does not exist or is currently out of stock.`);
     }
 
-    //b) check if the user has a cart already? if so, fetch the cartItems
     const userCart = await prisma.cart.findUnique({
       where: {
         userId,
       },
-      include: {
-        cartItems: true,
+    });
+
+    if (!userCart) {
+      res.status(500);
+      throw new Error('User cart does not exist. Please contact support.');
+    }
+
+    const productExitsInUserCart = await prisma.cartItem.findFirst({
+      where: {
+        productId,
+        cartId: userCart.id,
       },
     });
 
-    // if the user has a cart update the cartItem, else create the cart and add the cartItem
-    if (userCart) {
-      // check if the product is in cart
-      const productExitsInUserCart = userCart.cartItems.find(
-        (item) => item.productId === productId
-      );
-
-      if (productExitsInUserCart) {
-        if (productExitsInUserCart.quantity + 1 > product.quantity) {
-          res.status(400);
-          throw new Error('Cannot add more than available stock.');
-        }
-        await prisma.cartItem.update({
-          where: { id: productExitsInUserCart.id },
-          data: {
-            quantity: productExitsInUserCart.quantity + 1,
-          },
-        });
-      } else {
-        await prisma.cartItem.create({
-          data: {
-            cart: { connect: { id: userCart.id } },
-            product: { connect: { id: productId } },
-            quantity: 1,
-            price: product.price,
-          },
-        });
+    if (productExitsInUserCart) {
+      if (productExitsInUserCart.quantity + 1 > product.quantity) {
+        res.status(400);
+        throw new Error('Cannot add more than available stock.');
       }
-    } else {
-      await prisma.cart.create({
+      await prisma.cartItem.update({
+        where: { id: productExitsInUserCart.id },
         data: {
-          cartItems: {
-            create: {
-              price: product.price,
-              quantity: 1,
-              product: {
-                connect: {
-                  id: productId,
-                },
-              },
-            },
-          },
-          user: {
-            connect: {
-              id: userId,
-            },
-          },
+          quantity: productExitsInUserCart.quantity + 1,
+        },
+      });
+    } else {
+      await prisma.cartItem.create({
+        data: {
+          cart: { connect: { id: userCart.id } },
+          product: { connect: { id: productId } },
+          quantity: 1,
+          price: product.price,
         },
       });
     }
